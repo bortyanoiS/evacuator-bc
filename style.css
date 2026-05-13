@@ -147,17 +147,17 @@ header {
 .body-top {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Центрує кнопку і лого по вертикалі */
-  padding: 5px 0; /* Додає трохи простору */
+  align-items: center; 
+  padding: 5px 5px; 
   margin-bottom: 20px;
   width: 100%;
 }
 
-/* Виправляємо роботу з логотипом */
+
 .header-top img,
 .body-top img {
-  height: auto; /* Прибираємо фіксовані 120px */
-  width: 160px; /* Змінений розмір логотипа */
+  height: auto;
+  width: 200px; 
   max-width: 100%;
   object-fit: contain;
 }
@@ -739,8 +739,8 @@ footer {
   header,
   .menu,
   main {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .products {
     grid-template-columns: 1fr 1fr;
@@ -773,12 +773,12 @@ footer {
   }
 }
 
-/* Контейнер, де лежить логотип і кнопка в меню */
+
 .body-top {
   display: flex;
   justify-content: space-between; /* Розносить лого вліво, кнопку вправо */
   align-items: center;
-  padding: 20px;
+  padding: 0px;
   position: relative;
 }
 
@@ -1026,8 +1026,8 @@ footer {
   header,
   .menu,
   main {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .products {
     display: grid;
