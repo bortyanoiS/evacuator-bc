@@ -186,6 +186,90 @@ header {
   margin-top: 15px;
 }
 
+.hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    height: 100vh;
+}
+
+.glass-panel {
+    position: relative;
+    padding: 60px 20px;
+    width: 90%; /* Для мобілок */
+    max-width: 500px;
+    text-align: center;
+    z-index: 1; /* Створюємо контекст накладання */
+}
+
+/* Створюємо підкладку-світіння */
+.glass-panel::before {
+    content: "";
+    position: absolute;
+    /* Розширюємо підкладку за межі тексту для м'якості */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Фіксований розмір підкладки, щоб вона не зникала */
+    width: 140%; 
+    height: 140%;
+    
+    z-index: -1; /* Чітко під текст */
+
+    /* Градієнт: від світлого центру до повної прозорості */
+    background: radial-gradient(
+        circle, 
+        rgba(0, 0, 0, 50) 0%, 
+        rgba(0, 0, 0, 0.05) 40%, 
+        rgba(255, 255, 255, 0) 70%
+    );
+
+    /* М'яке розмиття самої підкладки */
+    filter: blur(30px);
+    
+    /* Додаткова маска для ігнорування країв */
+    -webkit-mask-image: radial-gradient(circle, black 30%, transparent 85%);
+    mask-image: radial-gradient(circle, black 30%, transparent 85%);
+    
+    pointer-events: none; /* Щоб підкладка не заважала натискати на кнопку */
+}
+
+/* Текст залишається чітким */
+h1 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+}
+
+p {
+    color: #ffcc00;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+}
+
+.mini-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.mini-features li {
+    font-size: 17px;
+    color: #ffffff;
+    margin: 8px 0;
+    font-weight: 600;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9);
+}
+
+
 main {
   padding: 120px 80px;
   background-color: #121212;
@@ -1210,4 +1294,57 @@ footer {
     font-size: 28px;
     margin-bottom: 40px;
   }
+}
+@media (max-width: 480px) {
+    .hero-container {
+        /* Змінюємо 100vh на auto, щоб блок підлаштовувався під контент */
+        height: auto; 
+        min-height: 100vh;
+        
+        /* Вирівнюємо все вгору, а не по центру */
+        justify-content: center; /* Центруємо по горизонталі */
+        padding-top: 20px;
+    }
+
+    .glass-panel {
+        padding: 20px 10px; /* Зменшуємо внутрішні відступи панелі */
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        margin-bottom: 10px; /* Зменшуємо відступ під заголовком */
+   letter-spacing: 2px; /* Зменшуємо відстань між літерами для кращого вигляду на маленьких екранах */
+      }
+
+    .mini-features {
+        margin-top: 0;
+        margin-bottom: 20px; /* Тільки невеликий відступ перед кнопкою */
+    }
+
+    .mini-features li {
+        margin: 5px 0; /* Зменшуємо відстань між пунктами списку */
+    }
+}
+
+/* 2. Планшети (від 481px до 768px) */
+@media (max-width: 768px) and (min-width: 481px) {
+    h1 {
+        font-size: 28px;
+    }
+    
+    .glass-panel {
+        max-width: 450px;
+    }
+}
+
+/* 3. Великі екрани (від 1200px) */
+@media (min-width: 1200px) {
+    h1 {
+        font-size: 42px; /* На десктопі заголовок може бути масивнішим */
+    }
+    
+    .glass-panel {
+        max-width: 600px;
+        padding: 80px 40px; /* Більше простору на великих моніторах */
+    }
 }
